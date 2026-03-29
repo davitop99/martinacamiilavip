@@ -4,7 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index";
-import Access from "./pages/Access";
+import Login from "./pages/Login";
 import Gallery from "./pages/Gallery";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
@@ -19,7 +19,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/access" element={<Access />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/admin-martina" element={<AdminDashboard />} />
           <Route path="*" element={<NotFound />} />
