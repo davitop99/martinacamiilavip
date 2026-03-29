@@ -128,15 +128,6 @@ const Gallery = () => {
                       >
                         <Maximize2 className="w-4 h-4" />
                       </button>
-                      <a
-                        href={photo.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="p-2 rounded-full bg-primary/20 hover:bg-primary/40 text-primary transition-colors"
-                      >
-                        <Download className="w-4 h-4" />
-                      </a>
                     </div>
                   </div>
                 </div>
