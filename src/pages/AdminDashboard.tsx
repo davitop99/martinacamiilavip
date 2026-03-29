@@ -267,7 +267,7 @@ const AdminDashboard = () => {
                         Inactive
                       </span>
                     ) : (
-                      <span className="text-xs bg-green-500/20 text-green-400 px-2.5 py-0.5 rounded-full font-display font-semibold">
+                      <span className="text-xs bg-success/20 text-success-foreground px-2.5 py-0.5 rounded-full font-display font-semibold">
                         Active
                       </span>
                     )}
