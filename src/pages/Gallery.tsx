@@ -155,16 +155,6 @@ const Gallery = () => {
               <X className="w-6 h-6" />
             </button>
 
-            {/* Download */}
-            <a
-              href={photos[fullscreenIndex].url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute top-4 left-4 p-3 rounded-full bg-primary/20 hover:bg-primary/40 text-primary transition-colors z-10"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Download className="w-6 h-6" />
-            </a>
 
             {/* Navigation */}
             {fullscreenIndex > 0 && (
