@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Lock, Flame, Camera, MessageCircle, Play } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/hero-martina.jpg";
+import teaserBlur from "@/assets/teaser-blur.jpg";
 
 const teasers = [
   { label: "Fotos sin censura", icon: Camera },
@@ -14,90 +16,110 @@ const Index = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden">
-      {/* Ambient glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-center max-w-lg mx-auto relative z-10"
-      >
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-display font-semibold mb-8 tracking-wider uppercase"
-        >
-          <Flame className="w-4 h-4" />
-          VIP Exclusive
-        </motion.div>
-
-        {/* Hero portrait placeholder */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="w-48 h-72 mx-auto mb-8 rounded-2xl bg-secondary border border-border overflow-hidden relative"
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Camera className="w-12 h-12 text-muted-foreground/50" />
-          </div>
-        </motion.div>
-
-        {/* Headline */}
-        <h1 className="text-3xl md:text-5xl font-display font-extrabold tracking-tight mb-4">
-          <span className="text-gold glow-gold">El lado privado</span>
-          <br />
-          <span className="text-foreground">de Martina</span>
-          <span className="ml-2 text-2xl">🇪🇸</span>
-        </h1>
-
-        <p className="text-muted-foreground text-base md:text-lg mb-10 max-w-sm mx-auto leading-relaxed">
-          Contenido exclusivo, sin filtros y lo que el algoritmo censura.
-          <span className="text-primary font-medium"> Accede ahora.</span>
-        </p>
-
-        {/* Teaser grid */}
-        <div className="grid grid-cols-2 gap-3 mb-10">
-          {teasers.map((item, i) => (
-            <motion.div
-              key={item.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 + i * 0.1 }}
-              className="glass-card rounded-xl p-4 flex flex-col items-center gap-2 relative overflow-hidden group"
-            >
-              <div className="absolute inset-0 bg-primary/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="w-16 h-16 rounded-lg bg-muted/50 flex items-center justify-center blur-sm relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg" />
-              </div>
-              <Lock className="w-5 h-5 text-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -mt-2" />
-              <span className="text-xs text-muted-foreground font-medium relative z-10 mt-1">
-                {item.label}
-              </span>
-            </motion.div>
-          ))}
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Full-width Hero Section */}
+      <section className="relative w-full min-h-screen flex items-center justify-center">
+        {/* Hero Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={heroImage}
+            alt="Martina VIP"
+            className="w-full h-full object-cover object-top"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
         </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
-        >
-          <Button
-            onClick={() => navigate("/access")}
-            size="lg"
-            className="w-full text-lg font-display font-bold tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 glow-orange animate-pulse-glow py-6"
+        {/* Ambient glow */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
+
+        {/* Content overlay */}
+        <div className="relative z-10 text-center px-4 pt-[60vh]">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            ENTRAR AL CLUB VIP 🔑
-          </Button>
-        </motion.div>
-      </motion.div>
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 }}
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-display font-semibold mb-6 tracking-widest uppercase backdrop-blur-sm"
+            >
+              <Flame className="w-4 h-4" />
+              VIP Exclusive Club
+            </motion.div>
+
+            {/* Headline */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold tracking-tight mb-4 leading-tight">
+              <span className="text-gold glow-gold">El lado privado</span>
+              <br />
+              <span className="text-foreground">de Martina</span>
+              <span className="ml-3 text-3xl md:text-5xl">🇪🇸</span>
+            </h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="text-muted-foreground text-lg md:text-xl mb-10 max-w-md mx-auto leading-relaxed"
+            >
+              Contenido exclusivo, sin filtros y lo que el algoritmo censura.
+              <span className="text-primary font-semibold"> Accede ahora.</span>
+            </motion.p>
+          </motion.div>
+
+          {/* Teaser Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="grid grid-cols-2 gap-3 max-w-sm mx-auto mb-10"
+          >
+            {teasers.map((item, i) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 + i * 0.1 }}
+                className="relative rounded-xl overflow-hidden aspect-square group cursor-pointer"
+              >
+                {/* Blurred teaser image */}
+                <img
+                  src={teaserBlur}
+                  alt=""
+                  className="w-full h-full object-cover blur-xl scale-110 brightness-50 group-hover:brightness-75 transition-all duration-500"
+                />
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-background/40" />
+                {/* Lock icon */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                  <Lock className="w-8 h-8 text-primary drop-shadow-lg" />
+                  <span className="text-xs text-foreground/80 font-display font-semibold tracking-wide">
+                    {item.label}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.1 }}
+            className="pb-12"
+          >
+            <Button
+              onClick={() => navigate("/login")}
+              size="lg"
+              className="text-lg md:text-xl font-display font-bold tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 glow-orange animate-pulse-glow px-10 py-7 rounded-xl"
+            >
+              ENTRAR AL CLUB VIP 🔑
+            </Button>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 };
