@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, LogOut, Image as ImageIcon, Maximize2, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { LogOut, Image as ImageIcon, Maximize2, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
@@ -128,15 +128,6 @@ const Gallery = () => {
                       >
                         <Maximize2 className="w-4 h-4" />
                       </button>
-                      <a
-                        href={photo.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="p-2 rounded-full bg-primary/20 hover:bg-primary/40 text-primary transition-colors"
-                      >
-                        <Download className="w-4 h-4" />
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -164,16 +155,6 @@ const Gallery = () => {
               <X className="w-6 h-6" />
             </button>
 
-            {/* Download */}
-            <a
-              href={photos[fullscreenIndex].url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute top-4 left-4 p-3 rounded-full bg-primary/20 hover:bg-primary/40 text-primary transition-colors z-10"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Download className="w-6 h-6" />
-            </a>
 
             {/* Navigation */}
             {fullscreenIndex > 0 && (
