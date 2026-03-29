@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, LogOut, Image as ImageIcon, Maximize2, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { LogOut, Image as ImageIcon, Maximize2, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
